@@ -33,7 +33,7 @@ def pairs(k, arr):
                 break
     return count
 
-# Metodo eficiente usando set, que reduce la complejidad a O(n), recorre una sola vez la lista
+# Metodo eficiente (greedy) usando set, que reduce la complejidad a O(n), recorre una sola vez la lista
 def pairs(k, arr):
     arr_set = set(arr)  # Convertimos la lista en un conjunto para búsqueda rápida
     count = 0

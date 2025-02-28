@@ -15,7 +15,8 @@ import sys
 #  1. INTEGER k
 #  2. INTEGER_ARRAY arr
 #
-
+# Metodo que comprueba a doble paso si existen pares si se encuentra se corta y reduce la complejidad, pero en el peor
+# de los casos sigue siendo O(n^2)
 def pairs(k, arr):
     # Write your code here
     arr.sort()
@@ -32,6 +33,14 @@ def pairs(k, arr):
                 break
     return count
 
+# Metodo eficiente usando set, que reduce la complejidad a O(n), recorre una sola vez la lista
+def pairs(k, arr):
+    arr_set = set(arr)  # Convertimos la lista en un conjunto para búsqueda rápida
+    count = 0
+    for num in arr:
+        if num - k in arr_set:
+            count += 1
+    return count
 
 if __name__ == '__main__':
 

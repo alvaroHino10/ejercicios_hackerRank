@@ -3,6 +3,9 @@ from collections import deque
 
 deque = deque()
 
+# Se usa la estructura de datos deque para simular una cola, se usa la funcion popleft para eliminar el primer elemento
+# de la cola y la funcion append para agregar un elemento al final de la cola. Segun los datos de entrada se decide si
+# insertar, eliminar o imprimir el primer elemento de la cola.
 def input_data():
     q = int(input())
     for _ in range(q):

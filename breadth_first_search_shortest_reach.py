@@ -5,7 +5,8 @@ import os
 import random
 import re
 import sys
-from typing import Dict, List
+from typing import Dict, List, Tuple
+
 
 #
 # Complete the 'bfs' function below.
@@ -16,16 +17,19 @@ from typing import Dict, List
 #  2. INTEGER m
 #  3. 2D_INTEGER_ARRAY edges
 #  4. INTEGER s
-#
+
+# Representacion de un grafo con listas de adyacencia, representado en un diccionario donde la clave es el vertice y el
+# valor es una lista de tuplas donde el primer elemento es el vertice adyacente y el segundo elemento es el peso de la
+# arista.
 class Graph:
     def __init__(self):
-        self.ady: Dict[int, List[int]] = {}
+        self.ady: Dict[int, List[Tuple[int, int]]] = {}
 
     def add_vert(self, vertice):
         if vertice not in self.ady:
             self.ady[vertice] = []
 
-    def add_edge(self, vertice1, vertice2, peso):
+    def add_edge(self, vertice1: int, vertice2: int, peso: int):
         if vertice1 not in self.ady:
             self.add_vert(vertice1)
         if vertice2 not in self.ady:
@@ -38,6 +42,8 @@ class Graph:
         for vertice in self.ady:
             print(f"{vertice} -> {self.ady[vertice]}")
 
+# Funcion extra que crea un grafo a partir de una lista de aristas, donde n es el numero de vertices y edges la lista de
+# aristas.
 def create_graph(n, edges):
     graph = Graph()
     for i in range(n):
@@ -46,9 +52,8 @@ def create_graph(n, edges):
         graph.add_edge(edge[0], edge[1], 6)
     return graph
 
-
+# Funcion bfs para el grafo que recorre en anchura y calcula la distancia de cada vertice al vertice de inicio s.
 def bfs(n, m, edges, s) -> List[int]:
-    # Write your code here
     graph: Graph = create_graph(n, edges)
     visited = [False] * n
     distances = [-1] * n

@@ -56,14 +56,14 @@ class Trie:
         return node.is_end
 
 
-def noPrefix(words):
+def no_prefix(list_words):
     """
         Verifica si un conjunto de palabras no tiene prefijos comunes.
-        :param words: List[str]: Un conjunto de palabras.
+        :param list_words: List[str]: Un conjunto de palabras.
         :return: None
     """
     trie = Trie()
-    for i in words:
+    for i in list_words:
         if trie.insert(i):
             print('BAD SET')
             print(i)
@@ -78,4 +78,4 @@ if __name__ == '__main__':
         words_item = input()
         words.append(words_item)
 
-    noPrefix(words)
+    no_prefix(words)

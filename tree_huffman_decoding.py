@@ -39,9 +39,9 @@ def huffman_hidden():  # builds the tree and returns root
 
 
 def dfs_hidden(obj, already):
-    if (obj == None):
+    if obj is None:
         return
-    elif (obj.data != '\0'):
+    elif obj.data != '\0':
         code_hidden[obj.data] = already
 
     dfs_hidden(obj.right, already + "1")
